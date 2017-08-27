@@ -31,7 +31,10 @@ export class HeroService {
   }
 
   getHero(id: number): Promise<Hero> {
-    return this.getHeroes()
-               .then(heroes => heroes.find(hero => hero.id === id));
+    const url = `${environment.heroesUrl}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as Hero)
+      .catch(this.handleError);
   }
 }
