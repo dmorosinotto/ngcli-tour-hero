@@ -29,13 +29,19 @@ const HEROES: Hero[] = [
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </li>
   </ul>
+  <h2>{{selectedHero.name}} details!</h2>
+  <div><label>id: </label>{{selectedHero.id}}</div>
+  <div>
+      <label>name: </label>
+      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+  </div>
   `
 })
 export class AppComponent {
   title = 'Tour of Heroes';
   heroes = HEROES;
-  
+  selectedHero: Hero;
   onSelect(hero: Hero): void {
-    console.log(hero);
+    this.selectedHero = hero;
   }
 }
