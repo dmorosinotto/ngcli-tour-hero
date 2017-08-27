@@ -1,5 +1,5 @@
 import { environment } from '../environments/environment';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import { Hero } from './hero';
@@ -48,4 +48,14 @@ export class HeroService {
     .catch(this.handleError);
   }
   
+
+  private headers = new Headers({'Content-Type': 'application/json'});
+  create(name: string): Promise<Hero> {
+    return this.http
+      .post(environment.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json() as Hero)
+      .catch(this.handleError);
+  }
+
 }
