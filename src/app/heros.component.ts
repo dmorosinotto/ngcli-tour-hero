@@ -19,6 +19,8 @@ import { Hero } from './hero';
       [class.selected]="hero === selectedHero"
       (click)="onSelect(hero)">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <button class="delete"
+      (click)="delete(hero); $event.stopPropagation()">x</button>
     </li>
   </ul>
   <div *ngIf="selectedHero">
@@ -57,5 +59,14 @@ export class HerosComponent implements OnInit {
         this.heroes.push(hero);
         this.selectedHero = null;
       });
+  }
+
+  delete(hero: Hero): void {
+    this.heroService
+        .delete(hero.id)
+        .then(() => {
+          this.heroes = this.heroes.filter(h => h !== hero);
+          if (this.selectedHero === hero) { this.selectedHero = null; }
+        });
   }
 }
