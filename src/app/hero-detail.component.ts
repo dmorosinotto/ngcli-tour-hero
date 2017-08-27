@@ -1,6 +1,8 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { HeroService } from './hero.service';
 import { Hero } from './hero';
 import { Component, Input } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'hero-detail',
@@ -18,10 +20,17 @@ export class HeroDetailComponent {
     @Input() hero: Hero;
 
     constructor(
+        private heroService: HeroService,
         private route: ActivatedRoute
-      ) 
+      )  
       {
           console.log(route.snapshot.params);
           console.log(route.snapshot.paramMap.get('id'));
       }
+
+    ngOnInit(): void {
+    this.route.paramMap
+        .switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id')))
+        .subscribe(hero => this.hero = hero);
+    }
 }
