@@ -3,7 +3,7 @@ h2 {
 }
 
 .selected {
-  background-color: #CFD8DC !important;
+  background-color: blue !important;
   color: white;
 }
 .heroes {
