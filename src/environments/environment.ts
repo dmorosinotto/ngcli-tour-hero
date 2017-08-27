@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false
-  , heroesUrl: "assets/heroes.json" // URL to web api
+  , heroesUrl: "http://localhost:3000/heroes" // URL to web api
 };
