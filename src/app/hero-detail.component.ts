@@ -16,7 +16,8 @@ import 'rxjs/add/operator/switchMap';
     <input [(ngModel)]="hero.name" placeholder="name"/>
   </div>
   <button (click)="goBack()">Back</button>
-</div>`
+</div>`,
+styleUrls: [ './hero-detail.component.css' ]
 })
 export class HeroDetailComponent {
     @Input() hero: Hero;
