@@ -9,11 +9,12 @@ import 'rxjs/add/observable/of';
 
 // Observable operators
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 import { HeroSearchService } from './hero-search.service';
-import { Hero } from './hero';
+import { Hero } from './shared/hero';
 
 @Component({
   selector: 'hero-search',
@@ -51,7 +52,7 @@ export class HeroSearchComponent implements OnInit {
   }
 
   gotoDetail(hero: Hero): void {
-    let link = ['/detail', hero.id];
+    let link = ['heroes/detail', hero.id];
     this.router.navigate(link);
   }
 }

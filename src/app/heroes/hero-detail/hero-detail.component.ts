@@ -1,24 +1,14 @@
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
-import { HeroService } from './hero.service';
-import { Hero } from './hero';
+import { HeroService } from '../../shared/hero.service';
+import { Hero } from '../../shared/hero';
 import { Component, Input } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'hero-detail',
-  template: `
-<div *ngIf="hero">
-  <h2>{{hero.name}} details!</h2>
-  <div><label>id: </label>{{hero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name"/>
-  </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
-</div>`,
-styleUrls: [ './hero-detail.component.css' ]
+  templateUrl: './hero-detail.component.html',
+  styleUrls: [ './hero-detail.component.css' ]
 })
 export class HeroDetailComponent {
     @Input() hero: Hero;
