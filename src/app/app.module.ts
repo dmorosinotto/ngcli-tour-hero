@@ -8,16 +8,21 @@ import { HeroService } from './hero.service';
 import { AppComponent } from './app.component';
 
 import { RouterModule }   from '@angular/router';
+import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   declarations: [
     HerosComponent
-    ,HeroDetailComponent, AppComponent
+    ,HeroDetailComponent, AppComponent, DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
       {
         path: 'heroes',
         component: HerosComponent
