@@ -39,6 +39,7 @@ const HEROES: Hero[] = [
     <input [(ngModel)]="selectedHero.name" placeholder="name"/>
   </div>
 </div>
+<hero-detail></hero-detail>
   `
 })
 export class AppComponent {
