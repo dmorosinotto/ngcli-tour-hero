@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { HeroService } from './hero.service';
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +16,18 @@ import { HEROES } from './mock-heroes';
     </li>
   </ul>
   <hero-detail [hero]="selectedHero"></hero-detail>
-  `
+  `,
+  providers: [HeroService]
 })
 export class AppComponent {
   title = 'Tour of Heroes';
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
+
+  constructor(private heroService: HeroService) { 
+    this.heroes = heroService.getHeroes();
+  }
+
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
