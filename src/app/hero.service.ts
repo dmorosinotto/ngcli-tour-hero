@@ -1,3 +1,4 @@
+import { environment } from '../environments/environment';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
@@ -7,12 +8,11 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class HeroService {
-  private heroesUrl = 'assets/heroes.json';  // URL to web api
   
   constructor(private http: Http) { }
   
   getHeroes(): Promise<Hero[]> {
-    return this.http.get(this.heroesUrl)
+    return this.http.get(environment.heroesUrl)
                .toPromise()
                .then((res: Response) => res.json() as Hero[])
                .catch(this.handleError);
