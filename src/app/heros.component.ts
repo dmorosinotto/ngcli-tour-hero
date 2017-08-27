@@ -3,7 +3,7 @@ import { HeroService } from './hero.service';
 import { Hero } from './hero';
 
 @Component({
-  selector: 'app-root',
+  selector: 'my-heroes',
   styleUrls: ['./app.component.css'],
   template: `
   <h1>{{title}}</h1>
@@ -18,7 +18,7 @@ import { Hero } from './hero';
   <hero-detail [hero]="selectedHero"></hero-detail>
   `
 })
-export class AppComponent implements OnInit {
+export class HerosComponent implements OnInit {
   title = 'Tour of Heroes';
   heroes: Hero[];
   selectedHero: Hero;

@@ -2,13 +2,13 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { HerosComponent } from './heros.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from './hero.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    HerosComponent
     ,HeroDetailComponent
   ],
   imports: [
@@ -16,6 +16,6 @@ import { HeroService } from './hero.service';
     FormsModule
   ],
   providers: [HeroService],
-  bootstrap: [AppComponent]
+  bootstrap: [HerosComponent]
 })
 export class AppModule { }
