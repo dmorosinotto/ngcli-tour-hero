@@ -37,4 +37,15 @@ export class HeroService {
       .then(response => response.json() as Hero)
       .catch(this.handleError);
   }
+
+  
+  update(hero: Hero): Promise<Hero> {
+    const url = `${environment.heroesUrl}/${hero.id}`;
+    return this.http
+    .put(url, hero)
+    .toPromise()
+    .then(() => hero)
+    .catch(this.handleError);
+  }
+  
 }
