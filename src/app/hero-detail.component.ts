@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Hero } from './hero';
 import { Component, Input } from '@angular/core';
 
@@ -15,4 +16,12 @@ import { Component, Input } from '@angular/core';
 })
 export class HeroDetailComponent {
     @Input() hero: Hero;
+
+    constructor(
+        private route: ActivatedRoute
+      ) 
+      {
+          console.log(route.snapshot.params);
+          console.log(route.snapshot.paramMap.get('id'));
+      }
 }

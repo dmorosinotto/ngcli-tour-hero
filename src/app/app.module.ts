@@ -32,6 +32,10 @@ import { DashboardComponent } from './dashboard.component';
         path: 'heroes',
         component: HerosComponent
       }
+      ,{
+        path: 'detail/:id',
+        component: HeroDetailComponent
+      }
     ])
   ],
   providers: [HeroService],
